@@ -1,13 +1,15 @@
 package com.emma_ea.chat_room.service;
 
-import com.emma_ea.chat_room.configs.RepositoryGuard;
-import com.emma_ea.chat_room.model.User;
+import com.emma_ea.chat_room.model.UserEntity;
 import com.emma_ea.chat_room.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.Optional;
 
+@Service
+@Qualifier("UserService")
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
@@ -18,24 +20,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void login(String username) {
-        repository.save(new User(1, username, LocalDateTime.now()));
+        repository.save(new UserEntity(username, LocalDateTime.now()));
     }
 
     @Override
     public boolean userExists(String username) {
-        return repository.findbyName(username).isPresent();
+        return repository.findByUserName(username).isPresent();
     }
 
     @Override
     public void removeUser(String username) {
-        Optional<User> user = repository.findbyName(username);
+        Optional<UserEntity> user = repository.findByUserName(username);
         user.ifPresent(repository::delete);
     }
 
     @Override
     public LocalDateTime getLoginTime(String username) {
-        Optional<User> user = repository.findbyName(username);
-        return user.map(User::loginTime).orElse(null);
+        Optional<UserEntity> user = repository.findByUserName(username);
+        return user.map(UserEntity::getLoginTime).orElse(null);
     }
 
     @Override
