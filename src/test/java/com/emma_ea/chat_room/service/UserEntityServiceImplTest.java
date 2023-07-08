@@ -1,11 +1,10 @@
 package com.emma_ea.chat_room.service;
 
 import com.emma_ea.chat_room.repository.UserRepository;
-import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
+import com.emma_ea.chat_room.exceptions.UserNameAlreadyTaken;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;

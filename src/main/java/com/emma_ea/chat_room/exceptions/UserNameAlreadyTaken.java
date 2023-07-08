@@ -1,4 +1,4 @@
-package com.emma_ea.chat_room.util;
+package com.emma_ea.chat_room.exceptions;
 
 public class UserNameAlreadyTaken extends AppExceptions {
 

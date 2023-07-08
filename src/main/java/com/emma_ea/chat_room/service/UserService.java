@@ -1,6 +1,6 @@
 package com.emma_ea.chat_room.service;
 
-import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
+import com.emma_ea.chat_room.exceptions.UserNameAlreadyTaken;
 
 import java.time.LocalDateTime;
 

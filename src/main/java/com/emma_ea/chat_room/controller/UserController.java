@@ -1,18 +1,15 @@
 package com.emma_ea.chat_room.controller;
 
 import com.emma_ea.chat_room.service.UserService;
-import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.emma_ea.chat_room.exceptions.UserNameAlreadyTaken;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Controller
+@RequestMapping("/")
 public class UserController implements WebMvcConfigurer {
 
     private final UserService service;
@@ -26,8 +23,12 @@ public class UserController implements WebMvcConfigurer {
         registry.addViewController("/chat").setViewName("chat");
     }
 
-    @PostMapping("/login")
-    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping
+    public String home() {
+        return "index";
+    }
+
+    @PostMapping("login")
     public String loginUser(@RequestBody String userName) throws UserNameAlreadyTaken {
         service.login(userName);
         return "redirect:/chat";

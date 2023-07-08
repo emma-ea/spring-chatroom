@@ -2,7 +2,7 @@ package com.emma_ea.chat_room.service;
 
 import com.emma_ea.chat_room.model.UserEntity;
 import com.emma_ea.chat_room.repository.UserRepository;
-import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
+import com.emma_ea.chat_room.exceptions.UserNameAlreadyTaken;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
