@@ -1,6 +1,7 @@
 package com.emma_ea.chat_room.service;
 
 import com.emma_ea.chat_room.repository.UserRepository;
+import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,13 +26,13 @@ class UserEntityServiceImplTest {
     }
 
     @Test
-    void login() {
+    void login() throws UserNameAlreadyTaken {
         userService.login("John");
         assertEquals(1, repository.count());
     }
 
     @Test
-    void userExists() {
+    void userExists() throws UserNameAlreadyTaken {
         userService.login("John");
         boolean res = userService.userExists("John");
         assertTrue(res);
@@ -45,7 +46,7 @@ class UserEntityServiceImplTest {
     }
 
     @Test
-    void getLoginTime() {
+    void getLoginTime() throws UserNameAlreadyTaken {
         userService.login("John");
         LocalDateTime time = userService.getLoginTime("John");
         assertEquals(LocalDateTime.now().getDayOfWeek(), time.getDayOfWeek());

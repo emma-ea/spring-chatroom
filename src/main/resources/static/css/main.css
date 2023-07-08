@@ -1,0 +1,26 @@
+body {
+    padding: 20px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+.sc-login-head {
+    text-align: center;
+}
+
+#sc-body {
+    background-image: url("images/background.jpg");
+}
+
+.sc-login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#login-btn {
+    margin-bottom: 20px;
+}
