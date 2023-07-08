@@ -1,10 +1,12 @@
 package com.emma_ea.chat_room.service;
 
+import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
+
 import java.time.LocalDateTime;
 
 public interface UserService {
 
-    void login(String username);
+    void login(String username) throws UserNameAlreadyTaken;
 
     boolean userExists(String username);
 

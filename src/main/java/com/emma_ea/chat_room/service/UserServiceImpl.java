@@ -2,6 +2,7 @@ package com.emma_ea.chat_room.service;
 
 import com.emma_ea.chat_room.model.UserEntity;
 import com.emma_ea.chat_room.repository.UserRepository;
+import com.emma_ea.chat_room.util.UserNameAlreadyTaken;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login(String username) {
-        repository.save(new UserEntity(username, LocalDateTime.now()));
+    public void login(String userName) throws UserNameAlreadyTaken {
+        if (repository.findByUserName(userName).isPresent()) {
+            throw new UserNameAlreadyTaken(userName);
+        }
+        repository.save(new UserEntity(userName, LocalDateTime.now()));
     }
 
     @Override

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Chat</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+    <div id="sc-body">
+        <div class="sc-login-container well well-lg col-xs-4">
+            <h3 class="sc-login-head">Spring Chat</h3>
+            <form action="/login" method="post">
+                <input type="text" class="form-control input-lg" id="user-name" name="userName" placeholder="User name">
+                <input type="submit" class="form-control btn-danger input-lg" id="login-btn" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
