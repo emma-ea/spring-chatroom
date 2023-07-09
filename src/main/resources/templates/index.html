@@ -6,15 +6,13 @@
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/main.css"/>
 </head>
-<body>
-    <div id="sc-body">
-        <div class="sc-login-container well well-lg col-xs-4">
-            <h3 class="sc-login-head">Spring Chat</h3>
-            <form action="#" th:action="@{/login}" method="post">
-                <input type="text" class="form-control input-lg" id="user-name" name="userName" placeholder="User name">
-                <input type="submit" class="form-control btn-danger input-lg" id="login-btn" value="Login">
-            </form>
-        </div>
+<body id="sc-body">
+    <div class="sc-login-container well well-lg col-xs-4">
+        <h3 class="sc-login-head">Spring Chat</h3>
+        <form action="#" th:action="@{/login}" method="post">
+            <input type="text" class="form-control input-lg" id="user-name" name="userName" placeholder="User name">
+            <input type="submit" class="form-control btn-danger input-lg" id="login-btn" value="Login">
+        </form>
     </div>
 </body>
 </html>

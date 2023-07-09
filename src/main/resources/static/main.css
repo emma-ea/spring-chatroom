@@ -10,8 +10,11 @@ input {
     text-align: center;
 }
 
-#sc-body {
-    background-image: url("background.jpg");
+body#sc-body {
+    background-image: url("/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .sc-login-container {
@@ -19,8 +22,51 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 90%;
 }
 
 #login-btn {
     margin-bottom: 20px;
+}
+
+.sc-chat-head:link,
+.sc-chat-head:visited,
+.sc-chat-head:active {
+    color: white;
+    font-weight: bold;
+}
+
+.sc-chat-head:hover {
+    opacity: 80%;
+}
+
+.sc-chat-body {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+#send-chat {
+    margin-right: 10px;
+}
+
+.sc-chat-content {
+    margin-top: 20px;
+}
+
+.sc-chat-item{
+    padding: 20px 10px;
+    width: 550px;
+    color: black;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.sc-chat-info-item {
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-top: 20px;
 }

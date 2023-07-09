@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Chat room</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-    <h3>Welcome to chat</h3>
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand sc-chat-head" href="#">Spring Chat</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="sc-chat-body">
+        <div class="col-md-6">
+            <h4>Welcome: <span th:text="${application.username}"></span></h4>
+            <form action="#">
+                <div class="form-group">
+                    <h5 for="chat-text">Send text</h5>
+                    <textarea class="form-control input-lg col-sm-3" rows="5" id="chat-text"></textarea>
+                </div>
+                <br/>
+                <div class="form-inline">
+                    <input type="submit" class="form-control btn btn-primary" id="send-chat" value="SEND (ENTER)"/>
+                    <input type="reset" class="form-control btn btn-danger" id="clear-chat" value="CLEAR"/>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <span class="sc-chat-info-item well well-sm">
+                    <span class="glyphicon glyphicon-record"></span>
+                    Content
+                </span>
+                <span class="sc-chat-info-item well well-sm">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                    Online users
+                    <span th:text="${online}"></span>
+                </span>
+            </div>
+           <ul class="sc-chat-content">
+               <li class="sc-chat-item">User name: Chat goes here</li>
+           </ul>
+        </div>
+    </div>
 </body>
 </html>
