@@ -9,8 +9,11 @@
 <body id="sc-body">
     <div class="sc-login-container well well-lg col-xs-4">
         <h3 class="sc-login-head">Spring Chat</h3>
-        <form action="#" th:action="@{/login}" method="post">
-            <input type="text" class="form-control input-lg" id="user-name" name="userName" placeholder="User name">
+        <form role="form" th:action="@{/login}" th:object="${chatUser}" method="post">
+            <input type="text" class="form-control input-lg" id="user-name" th:field="*{userName}" placeholder="User name">
+<!--            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="alert alert-danger">-->
+<!--                <strong>Error!</strong> User name error-->
+<!--            </div>-->
             <input type="submit" class="form-control btn-danger input-lg" id="login-btn" value="Login">
         </form>
     </div>
