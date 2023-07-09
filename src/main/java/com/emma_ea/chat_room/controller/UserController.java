@@ -31,8 +31,13 @@ public class UserController implements WebMvcConfigurer {
     }
 
     @PostMapping("login")
-    public String loginUser(@RequestBody String userName, HttpServletRequest request) throws UserNameAlreadyTaken {
-        String name = userName.split("=")[1];
+    public String loginUser(@RequestBody String userName, HttpServletRequest request) throws Exception {
+        String name = "";
+        try {
+            name = userName.split("=")[1];
+        } catch (Exception e) {
+            throw new Exception("Input name invalid");
+        }
         service.login(name);
         request.getSession().getServletContext().setAttribute("username", name);
         return "redirect:/chat";

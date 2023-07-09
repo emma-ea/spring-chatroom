@@ -19,5 +19,14 @@ public class ControllerExceptionsAdviser  {
         return modelAndView;
     }
 
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ModelAndView genericErrorHandler(Exception e) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", e.getMessage());
+        modelAndView.setViewName("error");
+        return modelAndView;
+    }
+
 
 }
